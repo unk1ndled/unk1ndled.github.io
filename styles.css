@@ -1,12 +1,18 @@
 :root {
   --main-bg-color: #000000;
-  --main-text-color: #8723eb;
+  --main-text-color: #5a00b4;
   --section-title-color : #5a00b4;
   --secondary-text-color: #a8a8a8;
+
+  --book-front-color: #4b4b4b;
+  --book-back-color: #000000;
+  
 
   --main-padding: 16px;
 }
 
+
+/* grid */
 body {
   display: flex;
   align-items: center;
@@ -16,10 +22,10 @@ body {
   min-height: 90vh;
   background: var(--main-bg-color);
   background-image: linear-gradient(
-      rgba(155, 155, 255, 0.07) 0.1em,
+      rgba(193, 155, 255, 0.09) 0.1em,
       transparent 0.1em
     ),
-    linear-gradient(90deg, rgba(155, 155, 255, 0.07) 0.1em, transparent 0.1em);
+    linear-gradient(90deg, rgba(155, 155, 255, 0.09) 0.1em, transparent 0.1em);
   background-size: 2em 2em;
 }
 
@@ -30,7 +36,7 @@ h1 {
 }
 
 div.vertical-separator{
-  width: 50%;
+  width: 70%;
   gap: 20px;
   display: flex;
   align-items: center;
@@ -86,6 +92,8 @@ div.shelf {
   --height: calc(var(--width) * 4);
   --depth: calc(var(--width) * 3);
   --padding: 20px;
+
+
 
   width: calc(var(--width) + var(--padding));
   height: var(--height);
