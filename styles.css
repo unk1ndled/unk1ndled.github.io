@@ -1,9 +1,9 @@
 :root {
   --main-bg-color: #000000;
   --main-text-color: #cbb982;
-  --section-title-color : #d1900ed7;
   --secondary-text-color: #a8a8a8;
-  
+  --section-title-color : #d1900ed7;
+  --subsection-tc : #eee7d3;
 
   --main-padding: 16px;
 }
@@ -11,12 +11,14 @@
 
 /* grid */
 body {
+  
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   font-family: monospace;
   min-height: 90vh;
+  color: var(--secondary-text-color);
   background: var(--main-bg-color);
   background-image: linear-gradient(
       rgba(108, 87, 143, 0.09) 0.01em,
@@ -30,6 +32,10 @@ h1 {
   color: var(--main-text-color);
 
   text-align: center;
+}
+div{
+  font-size: medium;
+
 }
 
 div.vertical-separator{
@@ -51,6 +57,14 @@ h2{
   margin-top: 9px;
   margin-bottom: 9px;
   color: var(--section-title-color);
+  width: 100%;
+  text-align: left;
+}
+
+h3{
+  margin-top: 9px;
+  margin-bottom: 9px;
+  color: var(--subsection-tc);
   width: 100%;
   text-align: left;
 }
