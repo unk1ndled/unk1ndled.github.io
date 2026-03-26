@@ -8,6 +8,12 @@
     --main-padding: 16px;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* grid */
 body {
     display: flex;
@@ -19,16 +25,17 @@ body {
     color: var(--secondary-text-color);
     background: var(--main-bg-color);
     background-image:
-        linear-gradient(rgba(108, 87, 143, 0.9) 0.01em, transparent 0.1em),
-        linear-gradient(90deg, rgba(75, 75, 80, 0.9) 0.1em, transparent 0.1em);
+        linear-gradient(rgba(108, 87, 143, 0.9) 0.009em, transparent 0.1em),
+        linear-gradient(90deg, rgba(75, 75, 80, 0.9) 0.009em, transparent 0.1em);
     background-size: 2em 2em;
+    padding: 1rem 0;
 }
 
 h1 {
     color: var(--main-text-color);
-
     text-align: center;
 }
+
 div {
     font-size: medium;
 }
@@ -44,8 +51,32 @@ div.vertical-separator {
 
 div.section {
     width: 52%;
+    max-width: 860px;
     display: flex;
     flex-direction: column;
+}
+
+/* iframe */
+.iframe-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* subtle scrollbar so it doesn't look broken on mobile */
+    scrollbar-width: thin;
+    scrollbar-color: #333 #111;
+}
+
+.iframe-inner {
+    width: 785px;
+    margin: 0 auto;
+}
+
+.iframe-wrapper iframe {
+    display: block;
+    width: 785px;
+    height: 300px;
+    border: none;
+    flex-shrink: 0;
 }
 
 h2 {
@@ -73,7 +104,7 @@ p {
 }
 
 a {
-    text-decoration: none; /* Removes the underline */
+    text-decoration: none;
     color: var(--main-text-color);
     font-size: 15px;
     font-weight: inherit;
@@ -99,4 +130,53 @@ ul {
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+}
+
+/* ── Responsive breakpoints ───────────────────────────────────────────────── */
+
+/* Tablet – wide */
+@media (max-width: 1100px) {
+    div.section {
+        width: 78%;
+    }
+}
+
+/* Tablet – narrow / large phone landscape */
+@media (max-width: 820px) {
+    div.section {
+        width: 88%;
+    }
+
+    p {
+        font-size: medium;
+    }
+}
+
+/* Mobile portrait */
+@media (max-width: 540px) {
+    body {
+        padding: 1rem var(--main-padding);
+        justify-content: flex-start;
+    }
+
+    div.section {
+        width: 100%;
+    }
+
+    p {
+        font-size: small;
+        text-align: left;
+    }
+
+    a {
+        font-size: 14px;
+    }
+
+    h2 {
+        margin-top: 12px;
+    }
+
+    ul {
+        padding-left: 16px;
+    }
 }
