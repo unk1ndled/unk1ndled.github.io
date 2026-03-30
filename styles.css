@@ -61,14 +61,11 @@ div.section {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    /* subtle scrollbar so it doesn't look broken on mobile */
     scrollbar-width: thin;
     scrollbar-color: #333 #111;
-}
-
-.iframe-inner {
-    width: 785px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* fallback */
+    justify-content: safe center; /* no left-clip on overflow */
 }
 
 .iframe-wrapper iframe {
