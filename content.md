@@ -4,7 +4,7 @@ Research computing engineer.
 
 ## what i do
 
-Works at the intersection of HPC and "why is this broken again." Enjoys getting complex systems to behave reliably, quietly satisfied when they do.
+Works at the intersection of HPC and "why is this broken again." Enjoys getting complex systems to behave reliably.
 
 
 ## experience
