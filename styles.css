@@ -16,8 +16,8 @@
     --secondary-text-color: #1a1a1a;
     --section-title-color: #3c6e71;
     --subsection-tc: #391463;
-    --grid-color-1: rgba(0, 100, 0, 0.35);
-    --grid-color-2: rgba(0, 100, 0, 0.15);
+    --grid-color-1: rgba(0, 100, 0, 0.25);
+    --grid-color-2: rgba(0, 100, 0, 0.09);
 }
 
 *,
@@ -37,8 +37,8 @@ body {
     color: var(--secondary-text-color);
     background: var(--main-bg-color);
     background-image:
-        linear-gradient(var(--grid-color-1) 0.009em, transparent 0.1em),
-        linear-gradient(90deg, var(--grid-color-2) 0.009em, transparent 0.1em);
+        linear-gradient(var(--grid-color-1) 0.1em, transparent 0.1em),
+        linear-gradient(90deg, var(--grid-color-2) 0.1em, transparent 0.1em);
     transition:
         background 0.3s ease,
         color 0.3s ease,
@@ -49,7 +49,7 @@ body {
 
 main#content {
     width: min(680px, 100% - 2rem);
-    padding: 1rem 1rem;
+    padding: 0rem 0rem;
     line-height: 1.8;
 }
 
@@ -210,8 +210,6 @@ ul {
     }
 
     main#content {
-        padding: 1.25rem 1.25rem;
-        margin: 1rem 0;
         border-radius: 4px;
     }
 

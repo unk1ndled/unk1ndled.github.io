@@ -17,10 +17,7 @@ Works at the intersection of HPC and "why is this broken again." Enjoys getting 
       at [redacted], b2b saas multi service configuration manager
   - summer 2026 :
       at [redacted], nixos compose contribution
-
-
 ## reading
-
 s00n
 ## music
 
@@ -28,3 +25,5 @@ s00n
 ## links
 
 [github](https://github.com/unk1ndled) · [email](mailto:mohamed.salmane@inria.fr)
+
+![image](./linx.gif)
