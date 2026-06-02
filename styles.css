@@ -1,10 +1,10 @@
 :root {
     /*  Dark Theme (Default) */
     --main-bg-color: #000000;
-    --main-text-color: #d4e4f0; 
-    --secondary-text-color: #7a8fa0; 
-    --section-title-color: #5fa8d3; 
-    --subsection-tc: #a8c4d4; 
+    --main-text-color: #d4e4f0;
+    --secondary-text-color: #7a8fa0;
+    --section-title-color: #5fa8d3;
+    --subsection-tc: #a8c4d4;
     --grid-color-1: rgba(80, 160, 210, 0.25);
     --grid-color-2: rgba(60, 120, 170, 0.15);
 }

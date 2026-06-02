@@ -4,7 +4,7 @@
   const target = document.getElementById("content");
   if (!target) return;
 
-  fetch("content.md")
+  fetch("public/content.md")
     .then((res) => {
       if (!res.ok) throw new Error("Failed to fetch content.md");
       return res.text();
