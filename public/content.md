@@ -25,7 +25,7 @@ after 8 years or so, january 26 i cancelled my spotify subscription </3. the rec
 
 > the remedy :
 >  - online radios like [somaFm](https://www.somafm.com/) and [nts](https://www.nts.live/) : really good alternatives for discovery and an authentic underground sound experience
->  - the great lossless p1er4cy era : [spotifyFlac](https://github.com/spotbye/SpotiFLAC)
+>  - the great lossless p1er4cy era : [spotiFlac](https://github.com/spotbye/SpotiFLAC)
 
 ### reviews from my [albumoftheyear](https://www.albumoftheyear.org/user/unkindled/) 
 
