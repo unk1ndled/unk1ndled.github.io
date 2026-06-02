@@ -5,8 +5,8 @@
     --secondary-text-color: #7a8fa0;
     --section-title-color: #5fa8d3;
     --subsection-tc: #a8c4d4;
-    --grid-color-1: rgba(80, 160, 210, 0.25);
-    --grid-color-2: rgba(60, 120, 170, 0.15);
+    --grid-color-1: rgba(80, 160, 210, 0.2);
+    --grid-color-2: rgba(60, 120, 170, 0.1);
 }
 
 /* Light Theme Override */
@@ -16,8 +16,8 @@
     --secondary-text-color: #1a1a1a;
     --section-title-color: #3c6e71;
     --subsection-tc: #391463;
-    --grid-color-1: rgba(0, 100, 0, 0.25);
-    --grid-color-2: rgba(0, 100, 0, 0.09);
+    --grid-color-1: rgba(0, 100, 0, 0.1);
+    --grid-color-2: rgba(0, 100, 0, 0.05);
 }
 
 *,
@@ -116,7 +116,7 @@ h3 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: medium;
     text-align: justify;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -197,10 +197,6 @@ img {
     div.section {
         width: 88%;
     }
-
-    p {
-        font-size: medium;
-    }
 }
 
 /* Mobile portrait */
@@ -220,6 +216,7 @@ img {
 
     p {
         font-size: small;
+
         text-align: left;
     }
 

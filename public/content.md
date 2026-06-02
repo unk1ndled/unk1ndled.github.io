@@ -20,8 +20,16 @@ Works at the intersection of HPC and "why is this broken again." Enjoys getting 
 ## reading
 s00n
 ## music
+### stance
+after 8 years or so, january 26 i cancelled my spotify subscription </3. the recomendation algorithm became such unbearable slop that couldn't justify another year of pretending it was still helping me find new music.
 
-s00n
+> the remedy :
+>  - online radios like [somaFm](https://www.somafm.com/) and [nts](https://www.nts.live/) : really good alternatives for discovery and an authentic underground sound experience
+>  - the great lossless p1er4cy era : [spotifyFlac](https://github.com/spotbye/SpotiFLAC)
+
+### reviews from my [albumoftheyear](https://www.albumoftheyear.org/user/unkindled/) 
+
+
 ## links
 
 [github](https://github.com/unk1ndled) · [email](mailto:mohamed.salmane@inria.fr)
