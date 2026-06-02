@@ -26,4 +26,4 @@ s00n
 
 [github](https://github.com/unk1ndled) · [email](mailto:mohamed.salmane@inria.fr)
 
-![image](./linx.gif)
+![Alt text](public/linx.gif "Optional Title")

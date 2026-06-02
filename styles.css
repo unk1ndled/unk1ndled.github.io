@@ -137,6 +137,11 @@ ul {
     padding-left: 20px;
 }
 
+img {
+    max-width: 5rem;
+    height: auto;
+}
+
 /* scroll bar */
 ::-webkit-scrollbar {
     width: 12px;
