@@ -1,0 +1,56 @@
+name: Generate AOTY JSON
+
+# Triggers
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "AOTY Username to scrape"
+        required: true
+        default: "fantano"
+      min_rating:
+        description: "Minimum rating (exclusive)"
+        required: true
+        default: "60"
+      max_albums:
+        description: "How many albums to save"
+        required: true
+        default: "10"
+
+# bot back to the repo
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-save:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Cheerio
+        run: npm install cheerio
+
+      - name: Run Scraper Script
+        env:
+          AOTY_USERNAME: ${{ github.event.inputs.username }}
+          MIN_RATING: ${{ github.event.inputs.min_rating }}
+          MAX_ALBUMS: ${{ github.event.inputs.max_albums }}
+        run: node scraper.js
+
+      - name: Commit and Push albums.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add albums.json
+
+          # Only commit if albums.json actually changed to prevent empty commit errors
+          git commit -m "chore: update albums.json data" || exit 0
+          git push
