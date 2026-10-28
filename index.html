@@ -3,85 +3,54 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>unk</title>
+        <title>unk book</title>
         <meta name="theme-color" content="#0a1a9c" />
+        <link rel="icon" href="public/favicon.ico" sizes="16x16 32x32 48x48" />
+        <link rel="icon" href="public/icon-192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Zen+Maru+Gothic:wght@300;400;500&display=swap"
             rel="stylesheet"
         />
-        <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-
-            html,
-            body {
-                margin: 0;
-                height: 100%;
-            }
-
-            body {
-                font-family: "Josefin Sans", system-ui, sans-serif;
-                font-weight: 300;
-                color: #fff;
-                -webkit-font-smoothing: antialiased;
-            }
-
-            /* only on html: a body background would paint over the z-index:-1 image */
-            html {
-                background: #0a1a9c; /* matches the sky while the image loads */
-            }
-
-            /* Full-viewport background that crops to fill any aspect ratio.
-               object-position keeps the figure (~62% across, ~80% down) in frame
-               when portrait screens crop the sides. */
-            .bg {
-                position: fixed;
-                inset: 0;
-                width: 100vw;
-                height: 100vh;
-                height: 100lvh; /* stays put when mobile toolbars show/hide */
-                object-fit: cover;
-                object-position: 62% 75%;
-                z-index: -1;
-                user-select: none;
-                pointer-events: none;
-            }
-
-            main {
-                min-height: 100vh;
-                min-height: 100dvh;
-                padding: max(9vh, env(safe-area-inset-top)) max(7vw, env(safe-area-inset-right))
-                    env(safe-area-inset-bottom) max(7vw, env(safe-area-inset-left));
-            }
-
-            h1 {
-                margin: 0 0 0.3em;
-                font-size: clamp(3rem, 9vw, 6.5rem);
-                font-weight: 200;
-                letter-spacing: 0.02em;
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-            }
-
-            p {
-                max-width: 28em;
-                font-size: clamp(1.15rem, 2.4vw, 1.6rem);
-                line-height: 1.6;
-                text-shadow: 0 0 10px rgba(0, 0, 40, 0.7);
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <img class="bg" src="O76p3n7.jpeg" alt="" decoding="async" fetchpriority="high" />
-        <main>
-            <h1>unkindled</h1>
-            <p>
-                Not doing something after coming up with it is the same as just not coming up with it.
-            </p>
-        </main>
+        <div id="book">
+            <section class="page">
+                <img class="bg" src="public/bg.jpeg" alt="" decoding="async" fetchpriority="high" />
+                <div class="content">
+                    <h1>unkindled</h1>
+                    <p>
+                        Not doing something after coming up with it is the same as just not coming
+                        up with it.
+                    </p>
+                </div>
+                <p class="credit">art by Sui Ishida</p>
+            </section>
+
+            <section class="page paper">
+                <div class="content">
+                    <h2>about</h2>
+                    <p>
+                        PhD student @ inria working on distributed experimentation infrastructures, nix and dev tooling
+                    </p>
+
+
+                    <p class="links">
+                        <a href="https://github.com/unk1ndled">github</a> ·
+                        <a href="https://www.albumoftheyear.org/user/unkindled/">albumoftheyear</a> ·
+                        <a href="mailto:mohamed.salmane@inria.fr">email</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <button class="hint" id="prev" aria-label="Previous page">‹</button>
+        <button class="hint" id="next" aria-label="Next page">›</button>
+
+        <script src="lib/page-flip.browser.js"></script>
+        <script src="scripts/book.js"></script>
     </body>
 </html>

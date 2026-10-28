@@ -1,0 +1,235 @@
+/* Material You "content" scheme (dark), seeded from the background art */
+:root {
+    --surface: #111319;
+    --on-surface: #e2e2eb;
+    --paper: #f3faf9; /* cloud white, sampled from the brightest parts of the big cloud */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    background: #050d4f; /* shows behind a page while it curls */
+}
+
+body {
+    font-family: "Josefin Sans", system-ui, sans-serif;
+    font-weight: 300;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+}
+
+#book {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+}
+
+/* every page is a full-viewport sheet; page-flip positions and sizes it */
+.page {
+    overflow: hidden;
+    background: #0a1a9c;
+}
+
+/* Background art cropped to fill any aspect ratio.
+   object-position keeps the figure (~62% across, ~80% down) in frame
+   when portrait screens crop the sides. */
+.page > .bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 75%;
+    pointer-events: none;
+}
+
+/* inner pages: plain paper in the white of the clouds */
+.page.paper {
+    background: var(--paper);
+    color: var(--surface);
+}
+
+.page.paper :is(h1, h2, p) {
+    text-shadow: none;
+}
+
+/* Zen Maru Gothic only ships 300/400/500/700/900, so stick to real weights */
+.page.paper {
+    font-family: "Zen Maru Gothic", system-ui, sans-serif;
+    font-weight: 400; /* body: regular reads best at paragraph size */
+}
+
+.page.paper h2 {
+    font-weight: 300; /* light for the big display heading */
+    letter-spacing: 0.01em;
+}
+
+.page.paper h3,
+.page.paper .links {
+    font-weight: 500; /* labels and links a step heavier than body */
+}
+
+.page.paper .folio {
+    font-weight: 400;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    padding: max(9vh, env(safe-area-inset-top)) max(7vw, env(safe-area-inset-right))
+        env(safe-area-inset-bottom) max(7vw, env(safe-area-inset-left));
+}
+
+h1,
+h2 {
+    margin: 0 0 0.3em;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+    font-size: clamp(3rem, 9vw, 6.5rem);
+}
+
+h2 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+}
+
+p {
+    max-width: 28em;
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(0, 0, 40, 0.7);
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+}
+
+h3 {
+    margin: 1.6em 0 0.6em;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.9;
+}
+
+/* year column; wrapped lines stay aligned with the text, not under the year */
+.timeline li {
+    display: grid;
+    grid-template-columns: 3.6em 1fr;
+}
+
+.timeline span {
+    opacity: 0.5;
+}
+
+.links {
+    margin-top: 1.8em;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+}
+
+/* bottom of the cover sits on the white ground, so use sky-blue text */
+.credit,
+.folio {
+    position: absolute;
+    bottom: max(2.5vh, env(safe-area-inset-bottom));
+    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+}
+
+.credit {
+    left: max(7vw, env(safe-area-inset-left)); /* lines up with the text above */
+    max-width: none;
+    color: #000;
+    text-shadow: none;
+}
+
+.folio {
+    right: max(1.5rem, env(safe-area-inset-right));
+    opacity: 0.7;
+}
+
+.page:not(.paper) .folio {
+    color: #0a1a9c;
+}
+
+/* the folded-over flap of a turning page: plain paper instead of a mirror of the front */
+.page.back {
+    background: var(--surface);
+}
+
+.page.back > * {
+    visibility: hidden;
+}
+
+/* faint arrows hinting that the page turns */
+.hint {
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+    transform: translateY(-50%);
+    padding: 1rem;
+    border: 0;
+    background: none;
+    color: #fff;
+    font: inherit;
+    font-size: 2.2rem;
+    text-shadow: 0 0 8px rgba(0, 0, 40, 0.8); /* stays visible over white clouds */
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+/* dark arrows while a light page is showing */
+body.on-paper .hint {
+    color: var(--surface);
+    text-shadow: none;
+}
+
+.hint:hover {
+    opacity: 0.9;
+}
+
+.hint[disabled] {
+    visibility: hidden;
+}
+
+/* touch screens tap or swipe the page itself; the arrows would only cover text */
+@media (pointer: coarse) {
+    .hint {
+        display: none;
+    }
+}
+
+#prev {
+    left: 0.25rem;
+}
+
+#next {
+    right: 0.25rem;
+}
