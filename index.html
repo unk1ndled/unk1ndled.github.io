@@ -2,39 +2,53 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>unk</title>
-        <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+        <meta name="theme-color" content="#0a1a9c" />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
 
-        <link rel="stylesheet" href="styles.css" />
+            html,
+            body {
+                margin: 0;
+                height: 100%;
+            }
+
+            /* only on html: a body background would paint over the z-index:-1 image */
+            html {
+                background: #0a1a9c; /* matches the sky while the image loads */
+            }
+
+            /* Full-viewport background that crops to fill any aspect ratio.
+               object-position keeps the figure (~62% across, ~80% down) in frame
+               when portrait screens crop the sides. */
+            .bg {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                height: 100lvh; /* stays put when mobile toolbars show/hide */
+                object-fit: cover;
+                object-position: 62% 75%;
+                z-index: -1;
+                user-select: none;
+                pointer-events: none;
+            }
+
+            main {
+                min-height: 100vh;
+                min-height: 100dvh;
+                padding: env(safe-area-inset-top) env(safe-area-inset-right)
+                    env(safe-area-inset-bottom) env(safe-area-inset-left);
+            }
+        </style>
     </head>
     <body>
-        <header ">
-            <button id="theme-toggle" aria-label="Toggle Theme">
-                <span>🌙</span>
-            </button>
-        </header>
-
-
-
-        <!-- The main editable content is now in `content.md`. It will be fetched and rendered here -->
-        <main id="content" class="markdown-content">
-
-        </main>
-        <!--<div class="section">
-            <div class="iframe-wrapper">
-                <div class="iframe-inner">
-                    <iframe src="ascii/embedded.html" frameborder="0"></iframe>
-                    <p style="text-align: right">
-                        <span id="view-count">0</span> power render
-                    </p>
-                </div>
-            </div>
-        </div>-->
-        <!-- Marked (Markdown parser) from CDN and a tiny renderer script that loads `content.md` -->
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script src="scripts/render-md.js"></script>
-        <script type="module" src="scripts/mode.js"></script>
-        <script src="scripts/bg.js"></script>
+        <img class="bg" src="O76p3n7.jpeg" alt="" decoding="async" fetchpriority="high" />
+        <main></main>
     </body>
 </html>
