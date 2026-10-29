@@ -2,6 +2,8 @@
 :root {
     --surface: #111319;
     --on-surface: #e2e2eb;
+    --primary-container: #0d50b2;
+    --outline: #8d909e;
     --paper: #f3faf9; /* cloud white, sampled from the brightest parts of the big cloud */
 }
 
@@ -219,9 +221,9 @@ body.on-paper .hint {
     visibility: hidden;
 }
 
-/* touch screens tap or swipe the page itself; the arrows would only cover text */
+/* touch screens tap the cover to open the book, so only the back arrow is needed there */
 @media (pointer: coarse) {
-    .hint {
+    #next {
         display: none;
     }
 }
@@ -232,4 +234,44 @@ body.on-paper .hint {
 
 #next {
     right: 0.25rem;
+}
+
+/* live plot sitting on the same line as the "about" heading, filling the rest of the row */
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0 0 0.3em;
+}
+
+.title-row h2 {
+    flex: none;
+    margin: 0;
+}
+
+/* kept narrow so the plot reads tall: the first overshoot becomes a sharp spike */
+.scope {
+    --over: 0.65; /* how far the step response reaches past the heading, as a share of its height */
+    position: relative;
+    flex: none;
+    width: clamp(6rem, 11.5vw, 9rem); /* "needle": narrow enough that the first overshoot is a spike */
+    margin: 0;
+    transform: translateY(var(--nudge, 0px)); /* set by scope.js: centre on the heading's glyphs */
+}
+
+/* the wrapper owns the size; a canvas sized by CSS fights its own pixel buffer */
+.scope .plot {
+    position: relative;
+    height: clamp(2.2rem, 6vw, 4.5rem); /* same as the h2 font-size */
+}
+
+/* the canvas spills out of the row by --over above and below, without moving the layout.
+   (.plot in the selector outranks page-flip's injected `.stf__parent canvas { top: 0; height: 100% }`) */
+.scope .plot canvas {
+    position: absolute;
+    top: calc(var(--over) * -100%);
+    left: 0;
+    width: 100%;
+    height: calc((1 + 2 * var(--over)) * 100%);
+    touch-action: none;
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>unk book</title>
+        <title>Am---</title>
         <meta name="theme-color" content="#0a1a9c" />
         <link rel="icon" href="public/favicon.ico" sizes="16x16 32x32 48x48" />
         <link rel="icon" href="public/icon-192.png" type="image/png" sizes="192x192" />
@@ -32,7 +32,17 @@
 
             <section class="page paper">
                 <div class="content">
-                    <h2>about</h2>
+                    <div class="title-row">
+                        <h2>about</h2>
+                        <figure class="scope" data-tmax="30">
+                            <div class="plot">
+                                <canvas
+                                    role="img"
+                                    aria-label="A scrolling sine wave; hovering applies damping and it settles into the step response of a second-order system"
+                                ></canvas>
+                            </div>
+                        </figure>
+                    </div>
                     <p>
                         PhD student @ inria working on distributed experimentation infrastructures, nix and dev tooling
                     </p>
@@ -52,5 +62,6 @@
 
         <script src="lib/page-flip.browser.js"></script>
         <script src="scripts/book.js"></script>
+        <script src="scripts/scope.js"></script>
     </body>
 </html>

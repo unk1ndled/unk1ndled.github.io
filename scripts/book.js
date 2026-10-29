@@ -17,6 +17,7 @@ const book = new St.PageFlip(document.getElementById("book"), {
     maxShadowOpacity: 0.6,
     mobileScrollSupport: false,
     showPageCorners: false, // no corner fold following the mouse on hover
+    useMouseEvents: false, // no click/drag/swipe flipping; navigation is wired up below
 });
 book.loadFromHTML(pages);
 
@@ -41,12 +42,18 @@ function updateHints() {
 updateHints();
 book.on("flip", updateHints);
 
-// clicking the page itself is handled by page-flip: right half forward, left half back
 const next = () => book.flipNext("bottom");
 const prev = () => book.flipPrev("bottom");
 
 nextBtn.addEventListener("click", next);
 prevBtn.addEventListener("click", prev);
+
+// a click anywhere on the cover opens the book; inner pages only go back via the ‹ arrow,
+// so clicking their content (links, the plot) never flips the page
+document.getElementById("book").addEventListener("click", (e) => {
+    if (book.getCurrentPageIndex() !== 0 || e.target.closest("a, button")) return;
+    book.flipNext(e.clientY > innerHeight / 2 ? "bottom" : "top");
+});
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") next();
